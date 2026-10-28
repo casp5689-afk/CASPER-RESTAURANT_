@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مطعم كاسبر للماكولات السورية | Casper Restaurant</title>
+    <meta name="description" content="أشهى المأكولات السورية، شاورما، كريبات، وجبات غربي وكومبو، حواوشي بأفضل جودة وأسعار في مصنع سيد شارع السبيل. اطلب دليفري أونلاين الآن عبر الواتساب!">
+    <link rel="icon" type="image/png" href="images/casper-avatar.png">
+    
+    <!-- Google Fonts: Cairo & Readex Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Readex+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Smart Image Fallback Script for GitHub Pages & Local Hosting -->
+    <script>
+        window.addEventListener('error', function(e) {
+            if (e.target && e.target.tagName === 'IMG') {
+                var img = e.target;
+                var src = img.getAttribute('src');
+                if (!src) return;
+
+                if (!img.dataset.retry) {
+                    img.dataset.retry = '1';
+                    if (src.indexOf('images/') !== -1) {
+                        img.src = src.replace('images/', './');
+                    } else if (src.indexOf('/') === -1 || src.startsWith('./')) {
+                        img.src = './images/' + src.replace('./', '');
+                    }
+                } else if (img.dataset.retry === '1') {
+                    img.dataset.retry = '2';
+                    if (src.indexOf('images/') !== -1) {
+                        img.src = src.replace('images/', 'Images/');
+                    }
+                }
+            }
+        }, true);
+    </script>
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container announcement-content">
+            <div class="announcement-item">
+                <i class="fa-solid fa-motorcycle"></i>
+                <span>خدمة الدليفري والتوصيل السريع لجميع المناطق</span>
+            </div>
+            <div class="announcement-item phones">
+                <a href="tel:01001254381"><i class="fa-solid fa-phone"></i> 01001254381</a>
+                <span class="sep">|</span>
+                <a href="tel:01003340451"><i class="fa-solid fa-phone"></i> 01003340451</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <header class="navbar-header" id="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="brand-logo">
+                <img src="images/logo.png" alt="شعار مطعم كاسبر" class="logo-img">
+            </a>
+
+            <nav class="nav-links">
+                <a href="#menu-section" class="nav-link active"><i class="fa-solid fa-utensils"></i> قائمة الطعام</a>
+                <a href="#offers-section" class="nav-link"><i class="fa-solid fa-fire"></i> العروض العائلية</a>
+                <a href="#about-section" class="nav-link"><i class="fa-solid fa-location-dot"></i> العنوان والفرع</a>
+                <button type="button" class="nav-link btn-view-menu" id="openMenuModalBtn">
+                    <i class="fa-solid fa-image"></i> المنيو الأصلي
+                </button>
+            </nav>
+
+            <div class="header-actions">
+                <a href="https://wa.me/201001254381" target="_blank" class="btn-whatsapp-header" title="تواصل واتساب مباشر">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span class="btn-text">واتساب كاسبر</span>
+                </a>
+
+                <button class="cart-trigger-btn" id="openCartBtn" aria-label="عرض سلة الطلبات">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span class="cart-badge" id="cartCount">0</span>
+                    <span class="cart-total-preview" id="cartTotalPreview">0 ج</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="badge-special">
+                    <i class="fa-solid fa-star"></i> طعم الأصالة السورية والجودة العالية
+                </div>
+                <h1 class="hero-title">
+                    أهلاً بكم في <span class="highlight-text">مطعم كاسبر</span>
+                    <br>
+                    <span class="sub-highlight">للمأكولات السورية والغربية</span>
+                </h1>
+                <p class="hero-desc">
+                    نقدم لكم أشهى وأطيب الشاورما السوري على أصولها، أحدث الكريبات الإيطالية والغربية، كراتين وجبات التوفير العائلية، والكومبو اللذيذ بأفضل الأسعار وأعلى جودة فريش يومياً!
+                </p>
+
+                <div class="hero-badges">
+                    <div class="h-badge">
+                        <i class="fa-solid fa-drumstick-bite"></i>
+                        <span>دجاج ولحوم فريش يومياً</span>
+                    </div>
+                    <div class="h-badge">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>توصيل سريع ودليفري سخن</span>
+                    </div>
+                    <div class="h-badge">
+                        <i class="fa-solid fa-tag"></i>
+                        <span>أسعار منافسة وجودة مضمونة</span>
+                    </div>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#menu-section" class="btn btn-primary">
+                        <i class="fa-solid fa-utensils"></i> تصفح المنيو واطلب الآن
+                    </a>
+                    <a href="https://wa.me/201001254381?text=مرحبا%20مطعم%20كاسبر،%20عايز%20استفسر%20عن%20العروض%20والطلبات" target="_blank" class="btn btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> طلب مباشر واتساب
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-image-wrapper">
+                <div class="glow-effect"></div>
+                <img src="images/logo.png" alt="كاسبر للماكولات السورية" class="hero-logo-img">
+                <div class="location-floating-pill">
+                    <i class="fa-solid fa-map-pin"></i>
+                    <span>مصنع سيد - شارع السبيل (بجوار سوبر ماركت القدس)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Info Cards -->
+    <section class="features-bar">
+        <div class="container features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                <div class="feature-info">
+                    <h4>توصيل دليفري سريع</h4>
+                    <p>أسرع دليفري لجميع المناطق عشان طلبك يوصلك سخن ومقرمش</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                <div class="feature-info">
+                    <h4>طلب مباشر ع الواتساب</h4>
+                    <p>اختر أصنافك واكبس تأكيد وهيوصل الطلب منسق علطول للإدارة</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-certificate"></i></div>
+                <div class="feature-info">
+                    <h4>نظافة وجودة 100%</h4>
+                    <p>أفضل خامات التوابل السورية وزيوت طازجة وفراخ فريش يومياً</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-wallet"></i></div>
+                <div class="feature-info">
+                    <h4>أوفر أسعار يومية</h4>
+                    <p>وجبات كومبو واقتصادية وعروض عائلية تناسب كل الأكيلة</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Family Offer Banner -->
+    <section class="family-offer-section" id="offers-section">
+        <div class="container">
+            <div class="offer-banner-card">
+                <div class="offer-badge"><i class="fa-solid fa-gift"></i> عرض خاص</div>
+                <div class="offer-content">
+                    <h2 class="offer-title">04 | وجبات عائلية ولمة كاسبر 👑</h2>
+                    <p class="offer-desc">
+                        وجبات عائلية مميزة جداً بأسعار مخفضة وتوفير ضخم، كلم فريق كاسبر على الواتساب لمعرفة تفاصيل العرض والهدايا والمشروبات المجانية المرفقة!
+                    </p>
+                    <div class="offer-features-list">
+                        <span><i class="fa-solid fa-check-circle"></i> تكفي العائلات واللمات والتجمعات</span>
+                        <span><i class="fa-solid fa-check-circle"></i> توفير حقيقي وهدايا إضافية</span>
+                        <span><i class="fa-solid fa-check-circle"></i> مخللات وتوميات سوري ولتر كولا</span>
+                    </div>
+                </div>
+                <div class="offer-action">
+                    <a href="https://wa.me/201001254381?text=مرحبا%20مطعم%20كاسبر،%20عايز%20اعرف%20تفاصيل%20العروض%20العائلية%20ولمة%20كاسبر%20والهدايا" target="_blank" class="btn btn-gold">
+                        <i class="fa-brands fa-whatsapp"></i> تواصل واتساب لتفاصيل العرض
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <main class="menu-section" id="menu-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle"><i class="fa-solid fa-utensils"></i> أشهى الأطباق</span>
+                <h2 class="section-title">القائمة الشاملة - مطعم كاسبر</h2>
+                <p class="section-desc">اضغط على أي صنف لإضافته إلى السلة، وسنجهز طلبك في أسرع وقت</p>
+            </div>
+
+            <!-- Search and Filter Controls -->
+            <div class="menu-controls">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="ابحث عن وجبة، شاورما، كريب، حواوشي...">
+                    <button id="clearSearchBtn" class="clear-search-btn" title="مسح البحث" style="display: none;">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Categories Nav Tabs -->
+                <div class="categories-nav-wrapper">
+                    <div class="categories-nav" id="categoriesNav">
+                        <!-- Rendered dynamically by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Category Banner & Stats -->
+            <div class="category-meta-bar" id="categoryMetaBar">
+                <span class="cat-title" id="activeCategoryName">جميع الأصناف</span>
+                <span class="cat-count" id="itemsCountText">0 صنف متوفر</span>
+            </div>
+
+            <!-- Menu Grid Container -->
+            <div class="menu-grid" id="menuGrid">
+                <!-- Products injected via JS -->
+            </div>
+
+            <!-- Empty State for Search -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon"><i class="fa-solid fa-plate-wheat"></i></div>
+                <h3>لم نتمكن من إيجاد هذا الصنف!</h3>
+                <p>جرب البحث بكلمة أخرى مثل: شاورما، زنجر، كريب، كومبو، أو تصفح الأقسام.</p>
+                <button class="btn btn-secondary" id="resetSearchBtn">إظهار كافة الأصناف</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Branch & Location Section -->
+    <section class="about-section" id="about-section">
+        <div class="container">
+            <div class="about-card">
+                <div class="about-info">
+                    <span class="section-subtitle"><i class="fa-solid fa-store"></i> تفضل بزيارتنا أو اطلب دليفري</span>
+                    <h2 class="about-title">مطعم كاسبر للمأكولات السورية</h2>
+                    <p class="about-text">
+                        نسعد دائماً بخدمتكم وتوفير ألذ وأشهى الوصفات السورية الأصلية. جاهزون لاستقبال طلباتكم طوال اليوم وتوصيلها حتى باب المنزل بأقصى سرعة وأعلى مستوى من الخدمة.
+                    </p>
+
+                    <div class="contact-details-list">
+                        <div class="c-item">
+                            <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="c-text">
+                                <strong>العنوان بالتفصيل:</strong>
+                                <span>مصنع سيد - شارع السبيل (بجوار سوبر ماركت القدس)</span>
+                            </div>
+                        </div>
+
+                        <div class="c-item">
+                            <div class="c-icon"><i class="fa-solid fa-phone-volume"></i></div>
+                            <div class="c-text">
+                                <strong>أرقام الطلبات والدليفري:</strong>
+                                <div class="phones-group">
+                                    <a href="tel:01001254381" class="phone-link"><i class="fa-solid fa-phone"></i> 01001254381 (واتساب ومكالمات)</a>
+                                    <a href="tel:01003340451" class="phone-link"><i class="fa-solid fa-phone"></i> 01003340451 (مكالمات)</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="c-item">
+                            <div class="c-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                            <div class="c-text">
+                                <strong>رقم الواتساب المعتمد للطلبات:</strong>
+                                <a href="https://wa.me/201001254381" target="_blank" class="whatsapp-badge-link">
+                                    01001254381 <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="c-item">
+                            <div class="c-icon"><i class="fa-solid fa-clock"></i></div>
+                            <div class="c-text">
+                                <strong>أوقات العمل:</strong>
+                                <span>يومياً على مدار الساعة لخدمتكم وتوصيل أسرع أوردر دليفري</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-map-box">
+                    <div class="map-placeholder">
+                        <img src="images/logo.png" alt="موقع مطعم كاسبر" class="map-logo">
+                        <div class="map-text-overlay">
+                            <h4><i class="fa-solid fa-map-location-dot"></i> فرع مصنع سيد</h4>
+                            <p>شارع السبيل - بجوار سوبر ماركت القدس</p>
+                            <a href="https://maps.google.com/?q=شارع+السبيل+مصنع+سيد" target="_blank" class="btn btn-outline-map">
+                                <i class="fa-solid fa-directions"></i> فتح في خرائط Google
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="مطعم كاسبر" class="footer-logo">
+                <p>مطعم كاسبر للماكولات السورية - طعم الأصالة والجودة العالية بأفضل الأسعار اليومية.</p>
+            </div>
+            <div class="footer-links">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="#menu-section">قائمة الطعام</a></li>
+                    <li><a href="#offers-section">العروض العائلية</a></li>
+                    <li><a href="#about-section">موقع الفرع</a></li>
+                    <li><a href="javascript:void(0)" id="footerOpenCart">سلة الطلبات</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>للتواصل والطلبات</h4>
+                <p><i class="fa-solid fa-phone"></i> 01001254381 / 01003340451</p>
+                <p><i class="fa-solid fa-location-dot"></i> مصنع سيد - شارع السبيل</p>
+                <a href="https://wa.me/201001254381" target="_blank" class="btn-footer-wa">
+                    <i class="fa-brands fa-whatsapp"></i> راسلنا عبر الواتساب
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <p>© <span id="currentYear"></span> مطعم كاسبر CASPER. جميع الحقوق محفوظة.</p>
+                <p class="dev-credits">تصميم وبرمجة موقع طلبات دليفري احترافي</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Mobile Bottom Bar -->
+    <div class="mobile-sticky-bar" id="mobileStickyBar">
+        <button class="mobile-cart-btn" id="mobileCartBtn">
+            <div class="mobile-cart-icon">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <span class="mobile-badge" id="mobileBadge">0</span>
+            </div>
+            <div class="mobile-cart-details">
+                <span class="mobile-cart-label">السلة الحالية</span>
+                <span class="mobile-cart-total" id="mobileTotal">0 جنيه</span>
+            </div>
+            <div class="mobile-cart-action">
+                <span>إتمام الطلب</span>
+                <i class="fa-solid fa-chevron-left"></i>
+            </div>
+        </button>
+    </div>
+
+    <!-- Sliding Cart Drawer / Sidebar -->
+    <div class="cart-drawer-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer" aria-label="سلة المشتريات">
+        <div class="cart-drawer-header">
+            <div class="cart-title-wrapper">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <h3>سلة الطلبات</h3>
+                <span class="cart-items-tag" id="drawerItemCount">0 صنف</span>
+            </div>
+            <button class="close-drawer-btn" id="closeCartBtn" aria-label="إغلاق السلة">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="cart-drawer-body" id="cartBody">
+            <!-- Dynamic Cart Items or Empty Cart Message -->
+        </div>
+
+        <div class="cart-drawer-footer" id="cartFooter">
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>مجموع الأصناف:</span>
+                    <span id="summarySubtotal">0 جنيه</span>
+                </div>
+                <div class="summary-row">
+                    <span>خدمة الدليفري:</span>
+                    <span class="delivery-note">حسب المنطقة والمسافة</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>إجمالي الأوردر المطلوب:</span>
+                    <span class="total-amount" id="summaryTotal">0 جنيه</span>
+                </div>
+            </div>
+
+            <div class="cart-actions">
+                <button type="button" class="btn btn-checkout" id="proceedToCheckoutBtn">
+                    <i class="fa-brands fa-whatsapp"></i> متابعة وإرسال ع الواتساب
+                </button>
+                <button type="button" class="btn-clear-cart" id="clearCartBtn">
+                    <i class="fa-regular fa-trash-can"></i> مسح السلة
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Checkout Modal (Customer Info & Confirmation) -->
+    <div class="modal-overlay" id="checkoutModalOverlay">
+        <div class="modal-card checkout-modal-card">
+            <div class="modal-header">
+                <div class="modal-title-wrap">
+                    <div class="wa-icon-badge"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div>
+                        <h3 class="modal-title">تأكيد الأوردر وإرساله للواتساب</h3>
+                        <p class="modal-subtitle">يرجى كتابة بياناتك للتوصيل السريع إلى عنوانك بدقة</p>
+                    </div>
+                </div>
+                <button class="close-modal-btn" id="closeCheckoutBtn" aria-label="إغلاق">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form id="checkoutForm" onsubmit="return false;">
+                    <!-- Customer Name -->
+                    <div class="form-group">
+                        <label for="customerName">
+                            <i class="fa-solid fa-user"></i> اسم العميل الكريم <span class="required-star">*</span>
+                        </label>
+                        <input type="text" id="customerName" class="form-control" placeholder="اكتب اسمك ثلاثي أو ثنائي" required>
+                    </div>
+
+                    <!-- Customer Phone -->
+                    <div class="form-group">
+                        <label for="customerPhone">
+                            <i class="fa-solid fa-phone"></i> رقم الهاتف (للاتصال والتوصيل) <span class="required-star">*</span>
+                        </label>
+                        <input type="tel" id="customerPhone" class="form-control" placeholder="مثال: 01001234567" required dir="ltr">
+                        <small class="form-hint">سيتم استخدامه للتواصل معك وتأكيد خروج الدليفري</small>
+                    </div>
+
+                    <!-- Detailed Address -->
+                    <div class="form-group">
+                        <label for="customerAddress">
+                            <i class="fa-solid fa-location-dot"></i> العنوان بالتفصيل <span class="required-star">*</span>
+                        </label>
+                        <textarea id="customerAddress" class="form-control" rows="2" placeholder="المنطقة، اسم الشارع، رقم العمارة، رقم الدور والشقة، علامة مميزة بجوارك..." required></textarea>
+                    </div>
+
+                    <!-- Delivery or Takeaway -->
+                    <div class="form-group">
+                        <label class="form-label-title"><i class="fa-solid fa-motorcycle"></i> طريقة الاستلام:</label>
+                        <div class="order-type-selector">
+                            <label class="radio-card selected" id="labelDelivery">
+                                <input type="radio" name="orderType" value="دليفري (توصيل للمنزل)" checked>
+                                <div class="radio-content">
+                                    <i class="fa-solid fa-truck-fast"></i>
+                                    <span>توصيل دليفري للمنزل</span>
+                                </div>
+                            </label>
+                            <label class="radio-card" id="labelTakeaway">
+                                <input type="radio" name="orderType" value="استلام من المطعم (تيك أواي)">
+                                <div class="radio-content">
+                                    <i class="fa-solid fa-bag-shopping"></i>
+                                    <span>استلام من الفرع تيك أواي</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Order Notes -->
+                    <div class="form-group">
+                        <label for="customerNotes">
+                            <i class="fa-solid fa-pen"></i> ملاحظات إضافية على الأكل (اختياري)
+                        </label>
+                        <input type="text" id="customerNotes" class="form-control" placeholder="مثال: بدون بصل، صوص رانش زيادة، شطة خفيفة...">
+                    </div>
+
+                    <!-- Order Summary Box -->
+                    <div class="checkout-order-summary">
+                        <div class="summary-header">
+                            <i class="fa-solid fa-receipt"></i> ملخص طلبك (<span id="modalItemsCount">0</span> صنف)
+                        </div>
+                        <div class="summary-items-list" id="modalItemsList">
+                            <!-- Injected by JS -->
+                        </div>
+                        <div class="summary-total-bar">
+                            <span>إجمالي الحساب:</span>
+                            <span class="total-price-tag" id="modalTotalPrice">0 جنيه</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-notice">
+                        <i class="fa-solid fa-circle-info"></i>
+                        بمجرد الضغط على الزر، سيتم فتح تطبيق الواتساب مباشرة برقم مطعم كاسبر <strong>(01001254381)</strong> مع رسالة منظمة بكل تفاصيل طلبك وعنوانك!
+                    </div>
+
+                    <button type="submit" class="btn btn-confirm-whatsapp" id="sendWhatsAppOrderBtn">
+                        <i class="fa-brands fa-whatsapp"></i> إرسال وتأكيد الأوردر ع الواتساب
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Original Menu Image Modal (Popup to view original menu board) -->
+    <div class="modal-overlay" id="menuModalOverlay">
+        <div class="modal-card menu-image-modal-card">
+            <div class="modal-header">
+                <div class="modal-title-wrap">
+                    <i class="fa-solid fa-image"></i>
+                    <div>
+                        <h3 class="modal-title">بانر قائمة طعام مطعم كاسبر المطبوعة</h3>
+                        <p class="modal-subtitle">القائمة الأصلية لأسعار كاسبر للماكولات السورية</p>
+                    </div>
+                </div>
+                <button class="close-modal-btn" id="closeMenuModalBtn" aria-label="إغلاق">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body menu-modal-body">
+                <div class="menu-image-container">
+                    <img src="images/menu-original.png" alt="المنيو الأصلي لمطعم كاسبر" class="full-menu-img">
+                </div>
+                <div class="modal-footer-actions">
+                    <a href="images/menu-original.png" download="منيو_مطعم_كاسبر.png" class="btn btn-secondary">
+                        <i class="fa-solid fa-download"></i> تحميل صورة المنيو
+                    </a>
+                    <button class="btn btn-primary" id="startOrderingFromModal">
+                        <i class="fa-solid fa-cart-plus"></i> اطلب من القائمة الآن
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Custom JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
